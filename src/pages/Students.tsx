@@ -91,7 +91,7 @@ const filteredStudents = sampleStudents.filter(student => {
   const matchesSearch = student.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
                         student.rollNo.toLowerCase().includes(searchQuery.toLowerCase()) ||
                         student.id.toLowerCase().includes(searchQuery.toLowerCase());
-  const matchesCourse = !selectedCourse || student.course === selectedCourse;
+  const matchesCourse = !selectedCourse || selectedCourse === "all" || student.course === selectedCourse;
   return matchesSearch && matchesCourse;
 });
 
@@ -206,7 +206,7 @@ return (
                 <SelectValue placeholder="All courses" />
               </SelectTrigger>
               <SelectContent>
-                <SelectItem value="">All Courses</SelectItem>
+                <SelectItem value="all">All Courses</SelectItem>
                 {courses.map((course) => (
                   <SelectItem key={course.id} value={course.id}>
                     {course.name}
