@@ -120,7 +120,7 @@ export default function CourseNotes() {
   const filteredNotes = sampleNotes.filter(note => {
     const matchesSearch = note.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
                          note.description.toLowerCase().includes(searchQuery.toLowerCase());
-    const matchesCourse = !selectedCourse || note.course === selectedCourse;
+    const matchesCourse = !selectedCourse || selectedCourse === "all" || note.course === selectedCourse;
     return matchesSearch && matchesCourse;
   });
 
@@ -275,7 +275,7 @@ export default function CourseNotes() {
                   <SelectValue placeholder="All courses" />
                 </SelectTrigger>
                 <SelectContent>
-                  <SelectItem value="">All Courses</SelectItem>
+                  <SelectItem value="all">All Courses</SelectItem>
                   {courses.map((course) => (
                     <SelectItem key={course.id} value={course.id}>
                       {course.name}
