@@ -1,14 +1,30 @@
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar";
-import { Bell, Search, User } from "lucide-react";
+import { Bell, Search, User, LogOut } from "lucide-react";
 import { FacultySidebar } from "./FacultySidebar";
+import { useAuth } from "@/hooks/useAuth";
+import { useNavigate } from "react-router-dom";
+import { useToast } from "@/hooks/use-toast";
 
 interface FacultyLayoutProps {
   children: React.ReactNode;
 }
 
 export function FacultyLayout({ children }: FacultyLayoutProps) {
+  const { logout, userEmail } = useAuth();
+  const navigate = useNavigate();
+  const { toast } = useToast();
+
+  const handleLogout = () => {
+    logout();
+    toast({
+      title: "Logged out successfully",
+      description: "You have been signed out of the faculty portal",
+    });
+    navigate("/login");
+  };
+
   return (
     <SidebarProvider>
       <div className="min-h-screen flex w-full bg-gray-50">
@@ -31,11 +47,23 @@ export function FacultyLayout({ children }: FacultyLayoutProps) {
             </div>
 
             <div className="flex items-center gap-3">
+              <div className="flex items-center gap-2 text-sm text-muted-foreground">
+                <span>{userEmail}</span>
+              </div>
               <Button variant="ghost" size="icon" className="hover:bg-blue-50">
                 <Bell className="w-5 h-5 text-blue-600" />
               </Button>
               <Button variant="ghost" size="icon" className="hover:bg-blue-50">
                 <User className="w-5 h-5 text-blue-600" />
+              </Button>
+              <Button 
+                variant="ghost" 
+                size="icon" 
+                className="hover:bg-red-50"
+                onClick={handleLogout}
+                title="Logout"
+              >
+                <LogOut className="w-5 h-5 text-red-600" />
               </Button>
             </div>
           </header>
