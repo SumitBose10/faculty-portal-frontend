@@ -15,54 +15,54 @@
     --popover: 0 0% 100%;
     --popover-foreground: 222.2 84% 4.9%;
 
-    /* Academic Blue Theme */
-    --primary: 217 91% 60%;
+    /* Blue & White Theme */
+    --primary: 214 100% 60%;
     --primary-foreground: 0 0% 100%;
-    --primary-muted: 217 91% 95%;
+    --primary-muted: 214 100% 96%;
 
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    --secondary: 214 50% 92%;
+    --secondary-foreground: 214 80% 25%;
 
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+    --muted: 214 30% 94%;
+    --muted-foreground: 214 20% 50%;
 
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    --accent: 214 60% 88%;
+    --accent-foreground: 214 90% 30%;
 
-    --destructive: 0 84.2% 60.2%;
+    --destructive: 214 50% 45%;
     --destructive-foreground: 0 0% 100%;
 
-    --success: 142 76% 36%;
+    --success: 214 60% 40%;
     --success-foreground: 0 0% 100%;
 
-    --warning: 38 92% 50%;
+    --warning: 214 80% 55%;
     --warning-foreground: 0 0% 100%;
 
     --border: 214.3 31.8% 91.4%;
     --input: 214.3 31.8% 91.4%;
-    --ring: 217 91% 60%;
+    --ring: 214 100% 60%;
 
     --radius: 0.75rem;
 
-    /* Academic Gradients */
-    --gradient-primary: linear-gradient(135deg, hsl(217 91% 60%), hsl(226 100% 70%));
-    --gradient-secondary: linear-gradient(135deg, hsl(217 91% 95%), hsl(226 100% 98%));
-    --gradient-accent: linear-gradient(135deg, hsl(142 76% 36%), hsl(158 64% 52%));
+    /* Blue & White Gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(214 100% 60%), hsl(214 90% 70%));
+    --gradient-secondary: linear-gradient(135deg, hsl(214 50% 92%), hsl(214 30% 96%));
+    --gradient-accent: linear-gradient(135deg, hsl(214 80% 50%), hsl(214 70% 60%));
 
     /* Shadows */
     --shadow-card: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
-    --shadow-primary: 0 10px 25px -5px hsl(217 91% 60% / 0.2);
+    --shadow-primary: 0 10px 25px -5px hsl(214 100% 60% / 0.2);
     --shadow-elevated: 0 25px 50px -12px rgb(0 0 0 / 0.25);
 
-    /* Academic Sidebar */
+    /* Blue & White Sidebar */
     --sidebar-background: 255 255 255;
-    --sidebar-foreground: 222.2 84% 4.9%;
-    --sidebar-primary: 217 91% 60%;
+    --sidebar-foreground: 214 80% 25%;
+    --sidebar-primary: 214 100% 60%;
     --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 217 91% 95%;
-    --sidebar-accent-foreground: 217 91% 25%;
-    --sidebar-border: 214.3 31.8% 91.4%;
-    --sidebar-ring: 217 91% 60%;
+    --sidebar-accent: 214 50% 92%;
+    --sidebar-accent-foreground: 214 90% 30%;
+    --sidebar-border: 214 30% 88%;
+    --sidebar-ring: 214 100% 60%;
   }
 
   .dark {
