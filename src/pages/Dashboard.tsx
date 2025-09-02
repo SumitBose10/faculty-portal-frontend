@@ -1,16 +1,16 @@
-import { 
-  Users, 
-  ClipboardList, 
-  GraduationCap, 
-  BookOpen, 
-  TrendingUp,
-  Calendar,
-  FileText,
-  Award
-} from "lucide-react";
 import { DashboardCard } from "@/components/DashboardCard";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import {
+  Award,
+  BookOpen,
+  Calendar,
+  ClipboardList,
+  FileText,
+  GraduationCap,
+  TrendingUp,
+  Users
+} from "lucide-react";
 
 export default function Dashboard() {
   const quickActions = [
@@ -19,21 +19,21 @@ export default function Dashboard() {
       description: "Mark student attendance for today's classes",
       icon: ClipboardList,
       url: "/attendance",
-      color: "bg-blue-500",
+      color: "bg-blue-600",
     },
     {
       title: "Enter Exam Marks",
       description: "Record and manage student exam scores",
       icon: GraduationCap,
       url: "/marks",
-      color: "bg-green-500",
+      color: "bg-blue-500",
     },
     {
       title: "Upload Notes",
       description: "Share course materials and study resources",
       icon: BookOpen,
       url: "/notes",
-      color: "bg-purple-500",
+      color: "bg-blue-400",
     },
   ];
 
@@ -47,20 +47,20 @@ export default function Dashboard() {
   return (
     <div className="space-y-6">
       {/* Welcome Header */}
-      <div className="bg-gradient-primary text-white p-8 rounded-xl shadow-elevated">
+      <div className="bg-blue-600 text-white p-8 rounded-xl shadow-lg">
         <div className="flex items-center justify-between">
           <div>
             <h1 className="text-3xl font-bold mb-2">Welcome back, Dr. Sarah Chen!</h1>
-            <p className="text-white/80 text-lg">
+            <p className="text-blue-100 text-lg">
               Computer Science Department • 6th Semester
             </p>
-            <p className="text-white/60 mt-2">
+            <p className="text-blue-200 mt-2">
               Ready to manage your academic responsibilities for today
             </p>
           </div>
           <div className="text-right">
             <div className="text-2xl font-bold">CS-301, CS-302</div>
-            <div className="text-white/80">Today's Classes</div>
+            <div className="text-blue-100">Today's Classes</div>
           </div>
         </div>
       </div>
@@ -100,7 +100,7 @@ export default function Dashboard() {
       {/* Quick Actions */}
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         {quickActions.map((action) => (
-          <Card key={action.title} className="hover:shadow-primary transition-all duration-300 cursor-pointer group">
+          <Card key={action.title} className="hover:shadow-lg transition-all duration-300 cursor-pointer group border border-blue-200">
             <CardHeader>
               <div className="flex items-center gap-4">
                 <div className={`p-3 rounded-lg ${action.color} text-white group-hover:scale-110 transition-transform`}>
@@ -113,7 +113,7 @@ export default function Dashboard() {
               </div>
             </CardHeader>
             <CardContent>
-              <Button className="w-full" variant="outline">
+              <Button className="w-full border-blue-300 text-blue-600 hover:bg-blue-600 hover:text-white" variant="outline">
                 Get Started
               </Button>
             </CardContent>
@@ -123,9 +123,9 @@ export default function Dashboard() {
 
       {/* Recent Activity & Today's Schedule */}
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-        <Card>
+        <Card className="border border-blue-200">
           <CardHeader>
-            <CardTitle className="flex items-center gap-2">
+            <CardTitle className="flex items-center gap-2 text-blue-700">
               <TrendingUp className="w-5 h-5" />
               Recent Activity
             </CardTitle>
@@ -134,18 +134,18 @@ export default function Dashboard() {
           <CardContent>
             <div className="space-y-4">
               {recentActivity.map((activity, index) => (
-                <div key={index} className="flex items-center justify-between p-3 rounded-lg bg-muted/50">
+                <div key={index} className="flex items-center justify-between p-3 rounded-lg bg-blue-50">
                   <span className="text-sm font-medium">{activity.action}</span>
-                  <span className="text-xs text-muted-foreground">{activity.time}</span>
+                  <span className="text-xs text-blue-400">{activity.time}</span>
                 </div>
               ))}
             </div>
           </CardContent>
         </Card>
 
-        <Card>
+        <Card className="border border-blue-200">
           <CardHeader>
-            <CardTitle className="flex items-center gap-2">
+            <CardTitle className="flex items-center gap-2 text-blue-700">
               <Calendar className="w-5 h-5" />
               Today's Schedule
             </CardTitle>
@@ -153,36 +153,36 @@ export default function Dashboard() {
           </CardHeader>
           <CardContent>
             <div className="space-y-4">
-              <div className="flex items-center justify-between p-4 rounded-lg border-l-4 border-l-primary bg-primary-muted">
+              <div className="flex items-center justify-between p-4 rounded-lg border-l-4 border-l-blue-600 bg-blue-50">
                 <div>
                   <div className="font-medium">Data Structures & Algorithms</div>
-                  <div className="text-sm text-muted-foreground">Room: CS-301</div>
+                  <div className="text-sm text-blue-500">Room: CS-301</div>
                 </div>
                 <div className="text-right">
-                  <div className="font-medium text-primary">10:00 AM</div>
-                  <div className="text-sm text-muted-foreground">60 students</div>
+                  <div className="font-medium text-blue-700">10:00 AM</div>
+                  <div className="text-sm text-blue-500">60 students</div>
                 </div>
               </div>
 
-              <div className="flex items-center justify-between p-4 rounded-lg border-l-4 border-l-success bg-success/10">
+              <div className="flex items-center justify-between p-4 rounded-lg border-l-4 border-l-blue-500 bg-blue-100">
                 <div>
                   <div className="font-medium">Database Management</div>
-                  <div className="text-sm text-muted-foreground">Room: CS-205</div>
+                  <div className="text-sm text-blue-500">Room: CS-205</div>
                 </div>
                 <div className="text-right">
-                  <div className="font-medium text-success">2:00 PM</div>
-                  <div className="text-sm text-muted-foreground">45 students</div>
+                  <div className="font-medium text-blue-600">2:00 PM</div>
+                  <div className="text-sm text-blue-500">45 students</div>
                 </div>
               </div>
 
-              <div className="flex items-center justify-between p-4 rounded-lg border-l-4 border-l-warning bg-warning/10">
+              <div className="flex items-center justify-between p-4 rounded-lg border-l-4 border-l-blue-400 bg-blue-50">
                 <div>
                   <div className="font-medium">Faculty Meeting</div>
-                  <div className="text-sm text-muted-foreground">Conference Room</div>
+                  <div className="text-sm text-blue-500">Conference Room</div>
                 </div>
                 <div className="text-right">
-                  <div className="font-medium text-warning">4:00 PM</div>
-                  <div className="text-sm text-muted-foreground">Department</div>
+                  <div className="font-medium text-blue-500">4:00 PM</div>
+                  <div className="text-sm text-blue-400">Department</div>
                 </div>
               </div>
             </div>

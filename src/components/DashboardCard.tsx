@@ -12,7 +12,6 @@ interface DashboardCardProps {
     isPositive: boolean;
   };
   className?: string;
-  gradient?: boolean;
 }
 
 export function DashboardCard({ 
@@ -21,47 +20,30 @@ export function DashboardCard({
   value, 
   icon: Icon, 
   trend, 
-  className,
-  gradient = false 
+  className 
 }: DashboardCardProps) {
   return (
     <Card className={cn(
-      "relative overflow-hidden shadow-card hover:shadow-primary transition-all duration-300",
-      gradient && "bg-gradient-primary text-white border-0",
+      "relative overflow-hidden shadow-sm hover:shadow-md transition-all duration-300 bg-white border rounded-2xl",
       className
     )}>
       <CardHeader className="pb-2">
         <div className="flex items-center justify-between">
-          <CardDescription className={cn(
-            "text-sm font-medium",
-            gradient ? "text-white/80" : "text-muted-foreground"
-          )}>
+          <CardDescription className="text-sm font-medium text-gray-500">
             {title}
           </CardDescription>
-          <div className={cn(
-            "p-2 rounded-lg",
-            gradient ? "bg-white/20" : "bg-primary-muted"
-          )}>
-            <Icon className={cn(
-              "w-4 h-4",
-              gradient ? "text-white" : "text-primary"
-            )} />
+          <div className="p-2 rounded-lg bg-blue-100">
+            <Icon className="w-4 h-4 text-blue-600" />
           </div>
         </div>
       </CardHeader>
       <CardContent>
         <div className="space-y-1">
-          <CardTitle className={cn(
-            "text-2xl font-bold",
-            gradient ? "text-white" : "text-foreground"
-          )}>
+          <CardTitle className="text-2xl font-bold text-gray-900">
             {value}
           </CardTitle>
           {description && (
-            <p className={cn(
-              "text-sm",
-              gradient ? "text-white/70" : "text-muted-foreground"
-            )}>
+            <p className="text-sm text-gray-500">
               {description}
             </p>
           )}
@@ -69,15 +51,11 @@ export function DashboardCard({
             <div className="flex items-center gap-1 text-sm">
               <span className={cn(
                 "font-medium",
-                trend.isPositive 
-                  ? gradient ? "text-white" : "text-success"
-                  : gradient ? "text-white/80" : "text-destructive"
+                trend.isPositive ? "text-green-600" : "text-red-600"
               )}>
                 {trend.isPositive ? "+" : ""}{trend.value}
               </span>
-              <span className={cn(
-                gradient ? "text-white/70" : "text-muted-foreground"
-              )}>
+              <span className="text-gray-500">
                 from last semester
               </span>
             </div>
