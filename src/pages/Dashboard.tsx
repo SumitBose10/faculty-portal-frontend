@@ -79,7 +79,6 @@ export default function Dashboard() {
           value="4"
           icon={Calendar}
           description="Scheduled lectures"
-          gradient
         />
         <DashboardCard
           title="Pending Marks"
