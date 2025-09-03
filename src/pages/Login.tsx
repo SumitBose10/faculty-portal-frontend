@@ -1,54 +1,22 @@
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Eye, EyeOff, GraduationCap, Lock, Mail } from "lucide-react";
-import { useToast } from "@/hooks/use-toast";
 import { useNavigate } from "react-router-dom";
 
 export default function Login() {
   const [showPassword, setShowPassword] = useState(false);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [isLoading, setIsLoading] = useState(false);
-  const { toast } = useToast();
   const navigate = useNavigate();
 
-  const handleLogin = async (e: React.FormEvent) => {
+  const handleLogin = (e) => {
     e.preventDefault();
-    
-    if (!email || !password) {
-      toast({
-        title: "Missing Information",
-        description: "Please enter both email and password",
-        variant: "destructive"
-      });
-      return;
-    }
-
-    setIsLoading(true);
-
-    // Simulate login process
-    setTimeout(() => {
-      // Simple frontend validation (you can customize these credentials)
-      if (email === "faculty@university.edu" && password === "password") {
-        localStorage.setItem("isLoggedIn", "true");
-        localStorage.setItem("userEmail", email);
-        toast({
-          title: "Login Successful!",
-          description: "Welcome to Faculty Portal",
-        });
-        navigate("/");
-      } else {
-        toast({
-          title: "Login Failed",
-          description: "Invalid email or password",
-          variant: "destructive"
-        });
-      }
-      setIsLoading(false);
-    }, 1000);
+    localStorage.setItem("isLoggedIn", "true");
+    localStorage.setItem("userEmail", email);
+    navigate("/"); // redirects to "/"
   };
 
   return (
@@ -60,12 +28,11 @@ export default function Login() {
               <GraduationCap className="w-8 h-8 text-white" />
             </div>
           </div>
-          <CardTitle className="text-2xl font-bold text-foreground">Faculty Portal</CardTitle>
-          <CardDescription className="text-muted-foreground">
-            Sign in to access your academic dashboard
-          </CardDescription>
+          <CardTitle className="text-2xl font-bold text-foreground">
+            Faculty Portal
+          </CardTitle>
         </CardHeader>
-        
+
         <CardContent>
           <form onSubmit={handleLogin} className="space-y-4">
             <div className="space-y-2">
@@ -79,7 +46,6 @@ export default function Login() {
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   className="pl-9"
-                  required
                 />
               </div>
             </div>
@@ -95,7 +61,6 @@ export default function Login() {
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
                   className="pl-9 pr-9"
-                  required
                 />
                 <Button
                   type="button"
@@ -113,20 +78,10 @@ export default function Login() {
               </div>
             </div>
 
-            <Button
-              type="submit"
-              className="w-full bg-gradient-primary"
-              disabled={isLoading}
-            >
-              {isLoading ? "Signing in..." : "Sign In"}
+            <Button type="submit" className="w-full bg-gradient-primary">
+              Sign In
             </Button>
           </form>
-
-          <div className="mt-6 p-4 rounded-lg bg-blue-50 border border-blue-200">
-            <p className="text-sm text-blue-700 font-medium mb-1">Demo Credentials:</p>
-            <p className="text-xs text-blue-600">Email: faculty@university.edu</p>
-            <p className="text-xs text-blue-600">Password: password</p>
-          </div>
         </CardContent>
       </Card>
     </div>
